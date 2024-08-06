@@ -8,9 +8,6 @@ export async function healthRouter(app: FastifyInstance) {
       schema: {
         tags: ["health"],
         summary: "Check the app's health.",
-        headers: z.object({
-          "x-api-key": z.string().optional(),
-        }),
         response: {
           200: z.object({
             uptime: z.number(),

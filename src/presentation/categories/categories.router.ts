@@ -6,8 +6,11 @@ import { updateCategorySchema } from "../../domain/schemas/update-category.schem
 import { categoryResponseSchema } from "../../domain/schemas/category-response.schema";
 import { CategoriesController } from "../../application/controllers/categories.controller";
 import { CategoriesRepository } from "../../infrastructure/repositories/categories.repository";
+import { authorizationMiddleware } from "../../application/middlewares/authorization.midleware";
 
 export async function categoriestRouter(app: FastifyInstance) {
+  app.addHook("onRequest", authorizationMiddleware);
+
   app.post(
     "/categories",
     {

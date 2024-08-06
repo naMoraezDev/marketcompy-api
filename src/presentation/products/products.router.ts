@@ -6,8 +6,11 @@ import { updateProductSchema } from "../../domain/schemas/update-product.schema"
 import { productResponseSchema } from "../../domain/schemas/product-response.schema";
 import { ProductsController } from "../../application/controllers/products.controller";
 import { ProductsRepository } from "../../infrastructure/repositories/products.repository";
+import { authorizationMiddleware } from "../../application/middlewares/authorization.midleware";
 
 export async function productsRouter(app: FastifyInstance) {
+  app.addHook("onRequest", authorizationMiddleware);
+
   app.post(
     "/products",
     {

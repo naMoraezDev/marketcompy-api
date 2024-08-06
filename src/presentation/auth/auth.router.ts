@@ -3,8 +3,11 @@ import { FastifyInstance } from "fastify";
 import { AuthController } from "../../application/controllers/auth.controller";
 import { AuthRepository } from "../../infrastructure/repositories/auth.repository";
 import { decodedIdTokenSchema } from "../../domain/schemas/decoded-id-token.schema";
+import { authorizationMiddleware } from "../../application/middlewares/authorization.midleware";
 
 export async function authRouter(app: FastifyInstance) {
+  app.addHook("onRequest", authorizationMiddleware);
+
   app.post(
     "/auth/verify-id-token",
     {
