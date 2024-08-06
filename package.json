@@ -1,0 +1,33 @@
+{
+  "name": "marketcompy-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx --watch --env-file=.env.local src/server.ts",
+    "build": "tsup src/server.ts --out-dir dist",
+    "start": "node --env-file=.env.local dist/server.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "@types/nodemailer": "^6.4.15",
+    "@types/pug": "^2.0.10",
+    "tsup": "^8.0.2",
+    "tsx": "^4.7.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@fastify/cors": "^9.0.1",
+    "@fastify/express": "^3.0.0",
+    "@fastify/static": "^7.0.3",
+    "@fastify/swagger": "^8.14.0",
+    "@fastify/swagger-ui": "^3.0.0",
+    "fastify": "^4.26.2",
+    "fastify-type-provider-zod": "^1.1.9",
+    "firebase-admin": "^12.2.0",
+    "zod": "^3.23.3"
+  },
+  "author": "Gabriel Moraes",
+  "license": "ISC",
+  "description": ""
+}
