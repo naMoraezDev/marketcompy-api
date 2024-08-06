@@ -15,6 +15,9 @@ export async function productsRouter(app: FastifyInstance) {
         tags: ["products"],
         summary: "Create a new product.",
         body: productSchema.omit({ id: true, slug: true }),
+        headers: z.object({
+          "x-api-key": z.string().optional(),
+        }),
         response: {
           201: z.string(),
         },
@@ -34,6 +37,9 @@ export async function productsRouter(app: FastifyInstance) {
       schema: {
         tags: ["products"],
         summary: "Delete a product.",
+        headers: z.object({
+          "x-api-key": z.string().optional(),
+        }),
         params: z.object({
           slug: z.string(),
         }),
@@ -56,6 +62,9 @@ export async function productsRouter(app: FastifyInstance) {
       schema: {
         tags: ["products"],
         summary: "Get the list of products by category slug.",
+        headers: z.object({
+          "x-api-key": z.string().optional(),
+        }),
         params: z.object({
           slug: z.string(),
         }),
@@ -81,6 +90,9 @@ export async function productsRouter(app: FastifyInstance) {
       schema: {
         tags: ["products"],
         summary: "Get a product.",
+        headers: z.object({
+          "x-api-key": z.string().optional(),
+        }),
         params: z.object({
           slug: z.string(),
         }),
@@ -103,6 +115,9 @@ export async function productsRouter(app: FastifyInstance) {
       schema: {
         tags: ["products"],
         summary: "Update a product.",
+        headers: z.object({
+          "x-api-key": z.string().optional(),
+        }),
         params: z.object({
           slug: z.string(),
         }),

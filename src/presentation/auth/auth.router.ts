@@ -14,6 +14,9 @@ export async function authRouter(app: FastifyInstance) {
         body: z.object({
           idToken: z.string(),
         }),
+        headers: z.object({
+          "x-api-key": z.string().optional(),
+        }),
         response: {
           200: decodedIdTokenSchema,
         },

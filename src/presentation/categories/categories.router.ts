@@ -15,6 +15,9 @@ export async function categoriestRouter(app: FastifyInstance) {
         tags: ["categories"],
         summary: "Create a new category.",
         body: categorySchema.omit({ id: true, slug: true }),
+        headers: z.object({
+          "x-api-key": z.string().optional(),
+        }),
         response: {
           201: z.string(),
         },
@@ -34,6 +37,9 @@ export async function categoriestRouter(app: FastifyInstance) {
       schema: {
         tags: ["categories"],
         summary: "Get a category.",
+        headers: z.object({
+          "x-api-key": z.string().optional(),
+        }),
         response: {
           200: categoryResponseSchema,
         },
@@ -53,6 +59,9 @@ export async function categoriestRouter(app: FastifyInstance) {
       schema: {
         tags: ["categories"],
         summary: "Update a category.",
+        headers: z.object({
+          "x-api-key": z.string().optional(),
+        }),
         params: z.object({
           slug: z.string(),
         }),
@@ -76,6 +85,9 @@ export async function categoriestRouter(app: FastifyInstance) {
       schema: {
         tags: ["categories"],
         summary: "Get the list of categories.",
+        headers: z.object({
+          "x-api-key": z.string().optional(),
+        }),
         response: {
           200: categoryListSchema,
         },
@@ -94,6 +106,9 @@ export async function categoriestRouter(app: FastifyInstance) {
       schema: {
         tags: ["categories"],
         summary: "Delete a category.",
+        headers: z.object({
+          "x-api-key": z.string().optional(),
+        }),
         params: z.object({
           slug: z.string(),
         }),
