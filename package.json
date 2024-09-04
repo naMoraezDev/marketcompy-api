@@ -1,7 +1,6 @@
 {
   "name": "marketcompy-api",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx --watch --env-file=.env.local src/server.ts",
@@ -27,7 +26,5 @@
     "firebase-admin": "^12.2.0",
     "zod": "^3.23.3"
   },
-  "author": "Gabriel Moraes",
-  "license": "ISC",
-  "description": ""
+  "author": "Gabriel Moraes"
 }
